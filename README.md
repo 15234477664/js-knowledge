@@ -270,7 +270,8 @@ console.log(arr2);
 ## $(this) 和 this 关键字在 jQuery 中有何不同？
 ```html
 $(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法，比如用 text() 获取文本，用val() 获取值等等。
-而 this 代表当前元素，它是 JavaScript 关键词中的一个，表示上下文中的当前 DOM 元素。你不能对它调用 jQuery 方法，直到它被 $() 函数包裹，例如 $(this)。
+而 this 代表当前元素，它是 JavaScript 关键词中的一个，表示上下文中的当前 DOM 元素。你不能对它调用 jQuery 方法
+直到它被 $() 函数包裹，例如 $(this)。
 ```
 ## jquery怎么移除标签onclick属性？
 ```html
@@ -290,4 +291,15 @@ $(selector).removeAttr(class);删除class这个属性；
  delegate()会在以下两个情况下使用到：
  如果你有一个父元素，需要给其下的子元素添加事件，这时你可以使用delegate()了，代码如下：
 $("ul").delegate("li", "click", function(){ $(this).hide(); });
+```
+## Ajax的优缺点及工作原理？
+```html
+优点
+1.减轻服务器的负担,按需取数据,最大程度的减少冗余请求
+2.局部刷新页面,减少用户心理和实际的等待时间,带来更好的用户体验
+3.基于xml标准化,并被广泛支持,不需安装插件等,进一步促进页面和数据的分离
+缺点
+1.AJAX大量的使用了javascript和ajax引擎,这些取决于浏览器的支持.在编写的时候考虑对浏览器的兼容性.
+2.AJAX只是局部刷新,所以页面的后退按钮是没有用的.
+3.对流媒体还有移动设备的支持不是太好等
 ```
