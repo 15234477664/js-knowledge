@@ -25,7 +25,7 @@ var isstring = isString('xiaoming');
 console.log(isstring);  // true
 ```
 ## 请用js去除字符串空格？
-### 方法一：使用replace正则匹配的方法
+方法一：使用replace正则匹配的方法
 ```js
 去除所有空格: str = str.replace(/\s*/g,"");      
 去除两头空格: str = str.replace(/^\s*|\s*$/g,"");
@@ -36,7 +36,7 @@ var str = " 23 23 ";
 var str2 = str.replace(/\s*/g,"");
 console.log(str2); // 2323
 ```
-### 方法二：使用str.trim()方法
+方法二：使用str.trim()方法
 ```js
 str.trim()局限性：无法去除中间的空格，实例如下：
 var str = "   xiao  ming   ";
@@ -223,4 +223,71 @@ Array.prototype.min = function() {
     return min;
 }
 var min = arr.min();console.log(min);  // 3
+```
+## 数组排序相关
+数组由小到大进行排序：sort,sortnum
+```js
+var arr = [3,43,23,45,65,90];
+function sortnum(a,b){
+　　return a-b;
+}
+arr = arr.sort(sortnum);
+console.log(arr);
+```
+// [3, 23, 43, 45, 65, 90]
+数组由大到小进行排序：sort,sortnum;
+```js
+var arr = [3,43,23,45,65,90];
+function sortnum(a,b){
+　　return b-a;
+}
+arr = arr.sort(sortnum);
+console.log(arr);
+// [90, 65, 45, 23, 43, 3]
+```
+数组的翻转
+方法一：
+```js
+var arr = [1,2,3,4];
+var arr2 = [];
+while(arr.length) {
+    var num = arr.pop(); //删除数组最后一个元素并返回被删除的元素
+    arr2.push(num);
+}
+console.log(arr2);
+// [4, 3, 2, 1]
+```
+方法二：
+```js
+var arr = [1,2,3,4];
+var arr2 = [];
+while(arr.length){
+    var num = arr.shift(); //删除数组第一个元素并返回被删除的元素
+    arr2.unshift(num);
+}
+console.log(arr2);
+```
+## $(this) 和 this 关键字在 jQuery 中有何不同？
+```html
+$(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法，比如用 text() 获取文本，用val() 获取值等等。
+而 this 代表当前元素，它是 JavaScript 关键词中的一个，表示上下文中的当前 DOM 元素。你不能对它调用 jQuery 方法，直到它被 $() 函数包裹，例如 $(this)。
+```
+## jquery怎么移除标签onclick属性？
+```html
+获得a标签的onclick属性: $("a").attr("onclick")
+删除onclick属性：$("a").removeAttr("onclick");
+设置onclick属性：$("a").attr("onclick","test();");
+```
+## jquery中addClass,removeClass,toggleClass的使用。
+```html
+$(selector).addClass(class)：为每个匹配的元素添加指定的类名
+$(selector).removeClass(class)：从所有匹配的元素中删除全部或者指定的类，删除class中某个值；
+$(selector).toggleClass(class)：如果存在（不存在）就删除（添加）一个类
+$(selector).removeAttr(class);删除class这个属性；
+```
+## jQuery中的Delegate()函数有什么作用？
+```html
+ delegate()会在以下两个情况下使用到：
+ 如果你有一个父元素，需要给其下的子元素添加事件，这时你可以使用delegate()了，代码如下：
+$("ul").delegate("li", "click", function(){ $(this).hide(); });
 ```
